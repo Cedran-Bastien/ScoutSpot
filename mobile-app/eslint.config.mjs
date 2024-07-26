@@ -47,7 +47,7 @@ export default [{
     settings: {
         "import/resolver": {
             typescript: {
-                project: "/home/cedran/Documents/Private/Professional/Power_IT/scoutspot/tsconfig.json",
+                project: "/home/cedran/Documents/Private/Professional/Power_IT/mobile-app/tsconfig.json",
             },
         },
     },

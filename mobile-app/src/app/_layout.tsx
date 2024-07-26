@@ -1,5 +1,5 @@
-import { Slot } from "expo-router";
 import { Platform, SafeAreaView, StatusBar } from "react-native";
+import { Slot } from "expo-router";
 
 const RootLayout = () => {
   return (
