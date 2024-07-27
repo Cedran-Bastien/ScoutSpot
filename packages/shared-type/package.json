@@ -1,0 +1,6 @@
+{
+  "name": "@scoutspot/shared-types",
+  "devDependencies": {
+    "@scoutspot/typescript-config": "workspace:*"
+  }
+}
