@@ -1,6 +1,6 @@
 import { Card } from "react-native-paper";
 import { Text } from "react-native";
-import { Space_Separator } from "json5/lib/unicode";
+import { SpotData } from "@scoutspot/shared-types";
 
 const SpotCard = ({ placeData }: { placeData: SpotData }) => {
   return (

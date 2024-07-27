@@ -1,5 +1,6 @@
 import { Platform, SafeAreaView, StatusBar } from "react-native";
 import { Slot } from "expo-router";
+import { ApiProvider } from "@/provider/ApiProvider";
 
 const RootLayout = () => {
   return (
@@ -8,7 +9,9 @@ const RootLayout = () => {
         paddingTop: Platform.OS == "android" ? StatusBar.currentHeight : 0,
       }}
     >
-      <Slot />
+      <ApiProvider>
+        <Slot />
+      </ApiProvider>
     </SafeAreaView>
   );
 };

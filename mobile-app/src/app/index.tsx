@@ -1,11 +1,14 @@
-import { FlatList, View } from "react-native";
+import { FlatList } from "react-native";
 import { Appbar } from "react-native-paper";
-import SpotCard from "@/src/components/molecule/SpotCard";
-import getSpot from "@/src/hooks/getSpot";
-import { useState } from "react";
+import SpotCard from "@/components/molecule/SpotCard";
+import { useApiClient } from "@/hooks/useApiClient";
 
 const Index = () => {
-  const [spots, setSpots] = useState<SpotData[]>(getSpot());
+  const { spots } = useApiClient();
+
+  const { data } = spots.getSpots.useQuery();
+
+  console.log(data);
 
   return (
     <>
@@ -13,7 +16,7 @@ const Index = () => {
         <Appbar.Content title="Spots" />
       </Appbar.Header>
       <FlatList
-        data={spots}
+        data={data}
         renderItem={({ item }) => <SpotCard placeData={item} />}
       />
     </>

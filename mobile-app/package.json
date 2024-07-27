@@ -1,5 +1,5 @@
 {
-  "name": "scoutspot",
+  "name": "@scoutspot/mobile-app",
   "main": "src/index.ts",
   "version": "1.0.0",
   "scripts": {
@@ -18,6 +18,10 @@
     "@expo/vector-icons": "^14.0.0",
     "@prisma/client": "^5.16.1",
     "@react-navigation/native": "^6.0.2",
+    "@tanstack/react-query": "^5.51.15",
+    "@trpc/client": "11.0.0-rc.467",
+    "@trpc/react-query": "11.0.0-rc.467",
+    "@trpc/server": "11.0.0-rc.467",
     "expo": "~51.0.14",
     "expo-constants": "~16.0.2",
     "expo-font": "~12.0.7",
@@ -41,6 +45,9 @@
     "@babel/core": "^7.20.0",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.6.0",
+    "@scoutspot/backend": "workspace:^",
+    "@scoutspot/shared-types": "workspace:*",
+    "@scoutspot/typescript-config": "workspace:*",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.2.45",
     "@types/react-test-renderer": "^18.0.7",

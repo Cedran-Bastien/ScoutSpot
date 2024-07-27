@@ -1,11 +1,12 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": "@scoutspot/typescript-config/expo.json",
   "compilerOptions": {
     "strict": true,
     "paths": {
       "@/*": [
-        "./*"
-      ]
+        "./src/*",
+        "../backend/src/*"
+      ],
     }
   },
   "include": [
