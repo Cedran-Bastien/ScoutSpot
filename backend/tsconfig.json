@@ -1,0 +1,12 @@
+{
+  "extends": "@scoutspot/typescript-config/base.json",
+  "include": ["src/", "index.ts", "vitest.config.mts", "prisma"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "noEmit": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@scoutspot/shared-types": ["../../packages/shared-types"]
+    }
+  }
+}
