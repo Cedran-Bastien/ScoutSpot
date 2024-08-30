@@ -1,7 +1,11 @@
-import { SpotsRepository } from "../spots.repository";
+import { SpotsRepository } from "../database.spots.repository";
+import { SpotData } from "@scoutspot/shared-types";
+import { PrismaClient } from "@prisma/client";
 
-class PrismaSpotsRepository implements SpotsRepository {
-  listSpots() {
-    return Promise.resolve();
+const prisma = new PrismaClient();
+
+export class PrismaSpotsRepository implements SpotsRepository {
+  async getSpots() {
+    return prisma.spots.findMany();
   }
 }
