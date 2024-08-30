@@ -1,1 +1,1 @@
-export * from "./spots.repository";
+export * from "./database.spots.repository";

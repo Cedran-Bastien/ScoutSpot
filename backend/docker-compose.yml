@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  scout-spot-db:
+    image: postgres:15-alpine
+    container_name: scoutspot-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: scoutspot
+      PGDATA: /data/postgres
+    volumes:
+      - scoutspot:/data/postgres
+    ports:
+      - "127.0.0.1:5432:5432"
+    restart: on-failure
+
+volumes:
+  scoutspot:

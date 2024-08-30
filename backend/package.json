@@ -19,6 +19,7 @@
   "devDependencies": {
     "@scoutspot/shared-types": "workspace:*",
     "@scoutspot/typescript-config": "workspace:*",
+    "prisma": "^5.16.1",
     "tsx": "^4.16.2"
   }
 }
