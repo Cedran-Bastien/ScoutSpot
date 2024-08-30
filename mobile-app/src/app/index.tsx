@@ -8,8 +8,6 @@ const Index = () => {
 
   const { data } = spots.getSpots.useQuery();
 
-  console.log(data);
-
   return (
     <>
       <Appbar.Header>
