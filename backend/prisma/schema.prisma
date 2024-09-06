@@ -17,7 +17,7 @@ model Spots {
   id          Int      @id @default(autoincrement())
   address     String   @unique
   postCode    Int
-  s3_access   String[]
+  pictureKeys String[]
   town        String
   mail        String
   phoneNumber String
