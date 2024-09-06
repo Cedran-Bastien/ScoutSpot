@@ -7,8 +7,6 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
-import { TRPCClientError } from "@trpc/client";
-import type { AppRouter } from "@/trpc/router";
 import { apiClient } from "./trpc";
 
 export const TRPCApiClientContext = createContext<typeof apiClient>(apiClient);

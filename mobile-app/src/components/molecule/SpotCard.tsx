@@ -1,20 +1,32 @@
 import { Card } from "react-native-paper";
-import { Text } from "react-native";
+import { Text, Image, Dimensions } from "react-native";
 import { SpotData } from "@scoutspot/shared-types";
+import Carousel from "react-native-reanimated-carousel";
 
-const SpotCard = ({ placeData }: { placeData: SpotData }) => {
+const SpotCard = ({ spotData }: { spotData: SpotData }) => {
   return (
-    <Card style={{ marginHorizontal: 5 }}>
-      <Card.Cover
-        source={{
-          uri: "https://www.google.com/search?q=campagne&client=ubuntu-sn&sca_esv=4bb6b1564136f20c&channel=fs&tbm=isch&source=iu&ictx=1&vet=1&fir=cT0hMiu2lQvvsM%252CW9UGOabYshRIIM%252C%252Fm%252F01f4td%253B14sa7fmse9hOEM%252CmjDAuoQ5tcNqcM%252C_%253BLEFvlFVvIVc27M%252CtcDdN7NtFrTMLM%252C_%253BomNZs_ubynjLMM%252Ch44HZ2RidXKQ-M%252C_&usg=AI4_-kSF7BNkfbnoSeqHs3txSmCP0KrjHQ&sa=X&ved=2ahUKEwjJ853QoomHAxWncaQEHdeaBBoQ_B16BAgwEAE#imgrc=cT0hMiu2lQvvsM",
-        }}
-      ></Card.Cover>
-      <Card.Content style={{ padding: 10 }}>
-        <Text>Addresse : {placeData.address}</Text>
-        <Text>Ville : {placeData.town}</Text>
-        <Text>Mail: {placeData.mail}</Text>
-        <Text>Tel : {placeData.phoneNumber}</Text>
+    <Card>
+      <Carousel
+        loop
+        height={Dimensions.get("window").height / 3}
+        width={Dimensions.get("window").width}
+        data={spotData.pictureKeys.map((key) =>
+          `${process.env.EXPO_PUBLIC_BASE_URL_AWS_S3}${key}`.replace(" ", "+"),
+        )}
+        renderItem={({ item }) => (
+          <Image
+            style={{
+              flex: 1,
+            }}
+            source={{ uri: item }}
+          />
+        )}
+      />
+      <Card.Content style={{ padding: 0 }}>
+        <Text>Addresse : {spotData.address}</Text>
+        <Text>Ville : {spotData.town}</Text>
+        <Text>Mail: {spotData.mail}</Text>
+        <Text>Tel : {spotData.phoneNumber}</Text>
       </Card.Content>
     </Card>
   );
