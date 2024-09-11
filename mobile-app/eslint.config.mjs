@@ -10,52 +10,62 @@ import { FlatCompat } from "@eslint/eslintrc";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
 });
 
-export default [{
+export default [
+  {
     ignores: [
-        "**/.*.js",
-        "**/node_modules/",
-        "**/dist/",
-        "**/babel.config.js",
-        "**/metro.config.js",
+      "**/.*.js",
+      "**/node_modules/",
+      "**/dist/",
+      "**/babel.config.js",
+      "**/metro.config.js",
     ],
-}, ...compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"), {
+  },
+  ...compat.extends(
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ),
+  {
     plugins: {
-        "@typescript-eslint": typescriptEslint,
-        "only-warn": onlyWarn,
+      "@typescript-eslint": typescriptEslint,
+      "only-warn": onlyWarn,
     },
     languageOptions: {
-        globals: {
-            ...globals.node,
-            React: true,
-            JSX: true,
-        },
+      globals: {
+        ...globals.node,
+        React: true,
+        JSX: true,
+      },
 
-        parser: tsParser,
-        ecmaVersion: 5,
-        sourceType: "commonjs",
+      parser: tsParser,
+      ecmaVersion: 5,
+      sourceType: "commonjs",
 
-        parserOptions: {
-            project: true,
-        },
+      parserOptions: {
+        project: true,
+      },
     },
 
     settings: {
-        "import/resolver": {
-            typescript: {
-                project: "/home/cedran/Documents/Private/Professional/Power_IT/mobile-app/tsconfig.json",
-            },
+      "import/resolver": {
+        typescript: {
+          project:
+            "/home/cedran/Documents/Private/Professional/Power_IT/mobile-app/tsconfig.json",
         },
+      },
     },
 
     rules: {
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": ["error"],
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["error"],
     },
-}, {
+  },
+  {
     files: ["**/*.js?(x)", "**/*.ts?(x)"],
-}];
+  },
+];

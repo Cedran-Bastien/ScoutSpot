@@ -4,7 +4,11 @@
   "private": true,
   "main": "./dist/server.js",
   "scripts": {
-    "dev": "tsx --watch src/server.ts"
+    "dev": "tsx --watch src/server.ts",
+    "lint": "eslint --fix ./**/*.{js,jsx,ts,tsx}",
+    "lint-no-fix": "eslint ./**/*.{js,jsx,ts,tsx}",
+    "format": "prettier --write ./**/*.{js,jsx,ts,tsx}",
+    "format-no-fix": "prettier ./**/*.{js,jsx,ts,tsx}"
   },
   "imports": {
     "@/controller": "./src/controller",

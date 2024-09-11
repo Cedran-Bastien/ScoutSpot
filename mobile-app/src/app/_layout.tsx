@@ -1,10 +1,8 @@
-import { Platform, SafeAreaView, StatusBar } from "react-native";
+import { ApiProvider } from "@/provider";
 import { Slot } from "expo-router";
-import { ApiProvider } from "@/provider/ApiProvider";
-import { CloudStorageProvider } from "@/provider/CloudStorageProvider";
-import { awsClient } from "@/provider/aws";
+import { Platform, SafeAreaView, StatusBar } from "react-native";
 
-const RootLayout = () => {
+const Layout = () => {
   return (
     <SafeAreaView
       style={{
@@ -13,12 +11,10 @@ const RootLayout = () => {
       }}
     >
       <ApiProvider>
-        <CloudStorageProvider cloudStorageClient={new awsClient()}>
-          <Slot />
-        </CloudStorageProvider>
+        <Slot />
       </ApiProvider>
     </SafeAreaView>
   );
 };
 
-export default RootLayout;
+export default Layout;
