@@ -1,13 +1,6 @@
 import { useApiClient } from "@/hooks/useApiClient";
-import {
-  FlatList,
-  Platform,
-  StatusBar,
-  Text,
-  SafeAreaView,
-} from "react-native";
+import { FlatList, Text, View } from "react-native";
 import SpotCard from "@/components/molecule/SpotCard";
-import { Appbar } from "react-native-paper";
 
 const SpotsPage = () => {
   const { spots } = useApiClient();
@@ -15,12 +8,7 @@ const SpotsPage = () => {
   const { data, error } = spots.getSpots.useQuery();
 
   return (
-    <SafeAreaView
-      style={{
-        paddingTop: Platform.OS == "android" ? StatusBar.currentHeight : 0,
-        flex: 1,
-      }}
-    >
+    <View>
       {!error && data && (
         <FlatList
           style={{ display: "flex", gap: 5 }}
@@ -29,7 +17,7 @@ const SpotsPage = () => {
         />
       )}
       {error && <Text>{error.message}</Text>}
-    </SafeAreaView>
+    </View>
   );
 };
 

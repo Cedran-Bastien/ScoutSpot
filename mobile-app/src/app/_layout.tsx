@@ -1,19 +1,19 @@
 import { ApiProvider } from "@/provider";
-import { Stack, Slot } from "expo-router";
+import { Slot } from "expo-router";
+import { Platform, SafeAreaView, StatusBar } from "react-native";
 
 const Layout = () => {
   return (
-    <ApiProvider>
-      {/*<Stack>*/}
-      <Slot />
-      {/*<Stack.Screen*/}
-      {/*  name="(home)"*/}
-      {/*  options={{*/}
-      {/*    headerShown: false,*/}
-      {/*  }}*/}
-      {/*/>*/}
-      {/*</Stack>*/}
-    </ApiProvider>
+    <SafeAreaView
+      style={{
+        paddingTop: Platform.OS == "android" ? StatusBar.currentHeight : 0,
+        flex: 1,
+      }}
+    >
+      <ApiProvider>
+        <Slot />
+      </ApiProvider>
+    </SafeAreaView>
   );
 };
 

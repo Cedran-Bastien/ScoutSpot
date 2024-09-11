@@ -5,7 +5,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export class PrismaSpotsRepository implements SpotsRepository {
-  async getSpots() {
+  async getSpots(): Promise<SpotData[]> {
     return prisma.spots.findMany();
   }
 }
