@@ -1,6 +1,5 @@
 export type SpotData = {
   id: number;
-  name: string;
   address: string;
   pictureKeys: string[];
   postCode: number;

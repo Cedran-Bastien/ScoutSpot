@@ -1,25 +1,27 @@
-import { Card, Text } from "react-native-paper";
+import { Card } from "react-native-paper";
+import { Text, Image, Dimensions } from "react-native";
 import { SpotData } from "@scoutspot/shared-types";
-import PaginatedCarousel from "@/components/molecule/PaginatedCarousel";
+import Carousel from "react-native-reanimated-carousel";
 
 const SpotCard = ({ spotData }: { spotData: SpotData }) => {
   return (
-    <Card
-      mode={"elevated"}
-      elevation={5}
-      style={{ display: "flex", gap: 50, borderRadius: 16, margin: 10 }}
-    >
-      <Card.Title
-        title={
-          <Text
-            variant={"titleLarge"}
-            children={
-              spotData.name.charAt(0).toUpperCase() + spotData.name.slice(1)
-            }
+    <Card>
+      <Carousel
+        loop
+        height={Dimensions.get("window").height / 3}
+        width={Dimensions.get("window").width}
+        data={spotData.pictureKeys.map((key) =>
+          `${process.env.EXPO_PUBLIC_BASE_URL_AWS_S3}${key}`.replace(" ", "+"),
+        )}
+        renderItem={({ item }) => (
+          <Image
+            style={{
+              flex: 1,
+            }}
+            source={{ uri: item }}
           />
-        }
+        )}
       />
-      <PaginatedCarousel data={spotData.pictureKeys} />
       <Card.Content style={{ padding: 0 }}>
         <Text>Addresse : {spotData.address}</Text>
         <Text>Ville : {spotData.town}</Text>

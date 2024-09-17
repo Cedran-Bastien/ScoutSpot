@@ -15,7 +15,6 @@ datasource db {
 
 model Spots {
   id          Int      @id @default(autoincrement())
-  name        String   @default("test")
   address     String   @unique
   postCode    Int
   pictureKeys String[]
